@@ -1,8 +1,8 @@
 package com.web.simplebank.service;
 
 import com.web.simplebank.Entity.AccountEntity;
-import com.web.simplebank.Mapper.MapToDto;
 import com.web.simplebank.Mapper.MapToEntity;
+import com.web.simplebank.Mapper.MapToRequest;
 import com.web.simplebank.Mapper.MapToResponse;
 import com.web.simplebank.dto.AccountRequestDto;
 import com.web.simplebank.dto.AccountResponseDto;
@@ -10,24 +10,23 @@ import com.web.simplebank.exceptions.InvalidAccountNumberException;
 import com.web.simplebank.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.function.EntityResponse;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class AccountEntityImpl implements AccountService{
+public class AccountServiceImpl implements AccountService{
     private AccountRepository repo;
 
     @Autowired
-    public AccountEntityImpl(AccountRepository repo) {
+    public AccountServiceImpl(AccountRepository repo) {
         this.repo = repo;
     }
 
     @Override
-    public AccountEntity createAccount(AccountRequestDto accountRequestDto) {
+    public AccountResponseDto createAccount(AccountRequestDto accountRequestDto) {
         AccountEntity accountEntity = MapToEntity.mapToEntity(accountRequestDto);
-        return repo.save(accountEntity);
+        return MapToResponse.mapToResponseDto(repo.save(accountEntity));
     }
 
     @Override

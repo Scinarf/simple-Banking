@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.*;
 
+import java.time.LocalDate;
+
 @Builder
 @Data
 public class AccountResponseDto {
@@ -18,5 +20,7 @@ public class AccountResponseDto {
     private String accountNumber;
     @Positive
     private double accBalance;
+    @NotEmpty
+    private LocalDate dateOfBirth;
 
 }
