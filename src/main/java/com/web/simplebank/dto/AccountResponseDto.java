@@ -1,16 +1,13 @@
 package com.web.simplebank.dto;
 
-import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.*;
 
-import java.time.LocalDate;
-
 @Builder
 @Data
-public class AccountDto {
+public class AccountResponseDto {
     @NotNull
     private String firstName;
     @NotNull
