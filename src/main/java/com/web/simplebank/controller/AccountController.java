@@ -16,16 +16,19 @@ public class AccountController {
 
     @Autowired
     public AccountController(AccountServiceImpl accountService) {
+
         this.accountService = accountService;
     }
 
     @PostMapping("/create")
     public void newAccount(AccountRequestDto accountRequestDto){
+
         accountService.createAccount(accountRequestDto);
     }
 
     @GetMapping("/active")
     public List<AccountResponseDto> activeAccounts(){
+
         return accountService.findAccounts();
     }
     @GetMapping("/myaccount/{accNumber}")

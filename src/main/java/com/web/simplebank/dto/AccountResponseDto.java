@@ -22,5 +22,9 @@ public class AccountResponseDto {
     private double accBalance;
     @NotEmpty
     private LocalDate dateOfBirth;
+    @NotEmpty
+    private long phoneNumber;
+    @NotNull
+    private String idNumber;
 
 }

@@ -3,6 +3,7 @@ package com.web.simplebank.Mapper;
 import com.web.simplebank.Automations.CalculateDateOfBirth;
 import com.web.simplebank.Entity.AccountEntity;
 import com.web.simplebank.dto.AccountRequestDto;
+import com.web.simplebank.dto.AccountUpdateDto;
 
 
 public class MapToRequest {
@@ -19,4 +20,5 @@ public class MapToRequest {
                 .phoneNumber(acc.getPhoneNumber())
                 .build();
     }
+
 }
