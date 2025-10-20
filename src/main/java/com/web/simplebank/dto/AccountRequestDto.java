@@ -22,10 +22,10 @@ public class AccountRequestDto {
     private int password;
     @NotEmpty
     private int age;
-    @NotEmpty
-    private LocalDate dateOfBirth;
-    @NotEmpty
-    private String accountNumber;
+//    @NotEmpty
+//    private LocalDate dateOfBirth;
+//    @NotEmpty
+//    private String accountNumber;
     @Positive
     private double accBalance;
 }

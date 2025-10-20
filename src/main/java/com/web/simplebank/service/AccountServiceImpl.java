@@ -2,7 +2,6 @@ package com.web.simplebank.service;
 
 import com.web.simplebank.Entity.AccountEntity;
 import com.web.simplebank.Mapper.MapToEntity;
-import com.web.simplebank.Mapper.MapToRequest;
 import com.web.simplebank.Mapper.MapToResponse;
 import com.web.simplebank.dto.AccountRequestDto;
 import com.web.simplebank.dto.AccountResponseDto;
@@ -24,6 +23,7 @@ public class AccountServiceImpl implements AccountService{
 
     @Autowired
     public AccountServiceImpl(AccountRepository repo) {
+
         this.repo = repo;
     }
 
@@ -34,10 +34,10 @@ public class AccountServiceImpl implements AccountService{
     }
 
     @Override
-    public AccountResponseDto findMyAccount(String accountNumber){
-        AccountEntity myAccount = repo.findByAccountNumber(accountNumber)
-                .orElseThrow(() ->
-                        new InvalidAccountNumberException("This Account Number doesnt exist in our database"));
+    public AccountResponseDto findMyAccount(int password){
+        AccountEntity myAccount = repo.findAccountByPassword(password).orElseThrow(
+                () -> new InvalidPasswordException("The password provided doesnt exist in our database")
+        );
         return MapToResponse.mapToResponseDto(myAccount);
     }
 

@@ -1,5 +1,6 @@
 package com.web.simplebank.Mapper;
 
+import com.web.simplebank.Automations.AccountNumbers;
 import com.web.simplebank.Entity.AccountEntity;
 import com.web.simplebank.dto.AccountRequestDto;
 
@@ -8,12 +9,12 @@ public class MapToEntity {
         return AccountEntity.builder()
                 .firstName(acc.getFirstName())
                 .lastName(acc.getLastName())
-                .accountNumber(acc.getAccountNumber())
+                .accountNumber(AccountNumbers.AccountNumbers())
                 .age(acc.getAge())
                 .password(acc.getPassword())
                 .accBalance(acc.getAccBalance())
                 .phoneNumber(acc.getPhoneNumber())
-                .dateOfBirth(acc.getDateOfBirth())
+//                .dateOfBirth(acc.getDateOfBirth())
                 .idNumber(acc.getIdNumber())
                 .build();
     }

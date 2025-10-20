@@ -2,6 +2,7 @@ package com.web.simplebank.controller;
 
 import com.web.simplebank.dto.AccountRequestDto;
 import com.web.simplebank.dto.AccountResponseDto;
+import com.web.simplebank.dto.AccountUpdateDto;
 import com.web.simplebank.service.AccountServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,9 +32,19 @@ public class AccountController {
 
         return accountService.findAccounts();
     }
-    @GetMapping("/myaccount/{accNumber}")
-    public AccountResponseDto myAccount(@PathVariable("accNumber")String accNumber){
-        return accountService.findMyAccount(accNumber);
+    @GetMapping("/myaccount/{password}")
+    public AccountResponseDto findMyAccount(@PathVariable("password")int password){
+        return accountService.findMyAccount(password);
+    }
+
+    @DeleteMapping("/delete/{accNumber}/{password}")
+    public void deleteMyAccount(@PathVariable ("accNumber") String accNumber,@PathVariable ("password") int password){
+        accountService.deleteMyAccount(accNumber,password);
+    }
+
+    @PutMapping("/update/{accNumber}")
+    public AccountResponseDto updateMyAccount(@PathVariable ("accNumber") String accNumber,@RequestBody AccountUpdateDto accountUpdateDto){
+        return accountService.updateMyAccount(accNumber,accountUpdateDto);
     }
 
 }

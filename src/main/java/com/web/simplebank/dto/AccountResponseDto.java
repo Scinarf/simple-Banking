@@ -20,8 +20,8 @@ public class AccountResponseDto {
     private String accountNumber;
     @Positive
     private double accBalance;
-    @NotEmpty
-    private LocalDate dateOfBirth;
+//    @NotEmpty
+//    private LocalDate dateOfBirth;
     @NotEmpty
     private long phoneNumber;
     @NotNull

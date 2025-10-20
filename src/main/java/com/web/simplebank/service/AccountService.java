@@ -11,7 +11,7 @@ import java.util.List;
 public interface AccountService {
     AccountResponseDto createAccount (AccountRequestDto accountRequestDto);
 
-    AccountResponseDto findMyAccount(String accountNumber);
+    AccountResponseDto findMyAccount(int password);
 
     List<AccountResponseDto> findAccounts();
 

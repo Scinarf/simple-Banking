@@ -14,7 +14,7 @@ public class MapToResponse {
                 .firstName(acc.getFirstName())
                 .accBalance(acc.getAccBalance())
                 .age(acc.getAge())
-                .dateOfBirth(acc.getDateOfBirth())
+//                .dateOfBirth(acc.getDateOfBirth())
                 .phoneNumber(acc.getPhoneNumber())
                 .idNumber(acc.getAccountNumber())
                 .build();

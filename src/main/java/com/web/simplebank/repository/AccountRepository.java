@@ -11,4 +11,5 @@ public interface AccountRepository extends JpaRepository<AccountEntity, Long> {
     Optional<AccountEntity> deleteByAccountNumber(String accountNumber);
 
     int findByPassword(int password);
+    Optional<AccountEntity> findAccountByPassword(int password);
 }
